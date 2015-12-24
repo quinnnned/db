@@ -14,14 +14,10 @@ VOLUME /var/lib/cassandra
 
 # Start titan install
 WORKDIR /opt/titan-1.0.0-hadoop1
-
 RUN curl -o /opt/titan.zip http://s3.thinkaurelius.com/downloads/titan/titan-1.0.0-hadoop1.zip
-
 RUN unzip /opt/titan.zip -d /opt/ && \
     rm /opt/titan.zip
     
-ADD run.sh /opt/titan-1.0.0-hadoop1/
-
 # Add config files
 ADD gremlin-server.yaml /opt/titan-1.0.0-hadoop1/conf/gremlin-server/
 ADD titan-cassandra-embedded.properties /opt/titan-1.0.0-hadoop1/conf/gremlin-server/
@@ -34,4 +30,4 @@ ADD titan-cassandra-embedded.properties /opt/titan-1.0.0-hadoop1/conf/gremlin-se
 # 9160: thrift service
 EXPOSE 8182 7000 7001 7199 9042 9160
 
-CMD ["/bin/sh", "-e", "/opt/titan-1.0.0-hadoop1/run.sh"]
+CMD ["/bin/sh", "-e", "/opt/titan-1.0.0-hadoop1/bin/gremlin-server.sh", "/opt/titan-1.0.0-hadoop1/conf/gremlin-server/gremlin-server.yaml"]
