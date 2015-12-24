@@ -7,8 +7,9 @@ LABEL Description="Titan 1.0 with Embedded Cassandra and Gremlin WebSocketChanne
 # Start cassandra install
 RUN echo "deb http://debian.datastax.com/community stable main" > /etc/apt/sources.list.d/cassandra.sources.list
 RUN curl -L http://debian.datastax.com/debian/repo_key | apt-key add -
-RUN apt-get update
-RUN apt-get install -y dsc21=2.1.9-1 cassandra=2.1.9 
+RUN apt-get update && apt-get install -y \
+    cassandra=2.1.9 \
+    dsc21=2.1.9-1 
 
 VOLUME /var/lib/cassandra
 
@@ -16,7 +17,7 @@ VOLUME /var/lib/cassandra
 WORKDIR /opt/titan-1.0.0-hadoop1
 RUN curl -o /opt/titan.zip http://s3.thinkaurelius.com/downloads/titan/titan-1.0.0-hadoop1.zip
 RUN unzip /opt/titan.zip -d /opt/ && \
-    rm /opt/titan.zip
+    rm    /opt/titan.zip
     
 # Add config files
 ADD gremlin-server.yaml /opt/titan-1.0.0-hadoop1/conf/gremlin-server/
