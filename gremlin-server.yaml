@@ -5,7 +5,6 @@ gremlinPool: 8
 scriptEvaluationTimeout: 30000
 serializedResponseTimeout: 30000
 channelizer: org.apache.tinkerpop.gremlin.server.channel.WebSocketChannelizer
-#channelizer: org.apache.tinkerpop.gremlin.server.channel.HttpChannelizer
 graphs: {
   graph: conf/gremlin-server/titan-cassandra-embedded.properties}
 plugins:
