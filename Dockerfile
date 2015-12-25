@@ -10,7 +10,6 @@ RUN curl -L http://debian.datastax.com/debian/repo_key | apt-key add -
 RUN apt-get update && apt-get install -y \
     cassandra=2.1.9 \
     dsc21=2.1.9-1 
-
 VOLUME /var/lib/cassandra
 
 # Start titan install
