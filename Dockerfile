@@ -1,5 +1,7 @@
 FROM java:8-jdk
+
 MAINTAINER Oliver Brooks <real.ollie.bee@gmail.com>
+
 LABEL Description="Titan 1.0 with Embedded Cassandra and Gremlin WebSocketChannelizer" Version="1.0" Tags="cassandra,elasticsearch,graph,gremlin,titan"
 
 # Start cassandra install
