@@ -31,4 +31,4 @@ ADD titan-cassandra-embedded.properties /opt/titan-1.0.0-hadoop1/conf/gremlin-se
 EXPOSE 8182 7000 7001 7199 9042 9160
 
 # Start Gremlin Server
-CMD ["/opt/titan-1.0.0-hadoop1/bin/gremlin-server.sh", "/opt/titan-1.0.0-hadoop1/conf/gremlin-server/gremlin-server.yaml"]
+CMD ["/opt/titan-1.0.0-hadoop1/bin/gremlin-server.sh", "-v", "/opt/titan-1.0.0-hadoop1/conf/gremlin-server/gremlin-server.yaml"]
